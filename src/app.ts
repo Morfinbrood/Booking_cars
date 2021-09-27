@@ -14,6 +14,7 @@ import { MONGODB_URI, SESSION_SECRET } from "./util/secrets";
 // Controllers (route handlers)
 import * as homeController from "./controllers/home";
 import * as userController from "./controllers/user";
+import * as carController from "./controllers/car";
 import * as apiController from "./controllers/api";
 import * as contactController from "./controllers/contact";
 
@@ -93,6 +94,9 @@ app.get("/reset/:token", userController.getReset);
 app.post("/reset/:token", userController.postReset);
 app.get("/signup", userController.getSignup);
 app.post("/signup", userController.postSignup);
+app.get("/createNewCar", carController.getCreateCar);
+app.post("/createNewCar", carController.createNewCar);
+
 app.get("/contact", contactController.getContact);
 app.post("/contact", contactController.postContact);
 app.get("/account", passportConfig.isAuthenticated, userController.getAccount);

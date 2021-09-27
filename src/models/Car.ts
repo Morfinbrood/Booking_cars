@@ -2,6 +2,7 @@ import crypto from "crypto";
 import mongoose from "mongoose";
 
 export type CarDocument = mongoose.Document & {
+    registrationNumber: string;
     model: string;
     manufactured: string;
     availableFromDate: string;
@@ -13,6 +14,7 @@ export type CarDocument = mongoose.Document & {
 
 const userSchema = new mongoose.Schema<CarDocument>(
     {
+        registrationNumber: { type: String, unique: true },
         model: String,
         manufactured: String,
         availableFromDate: String,
@@ -33,4 +35,4 @@ userSchema.methods.gravatar = function (size: number = 200) {
     return `https://gravatar.com/avatar/${md5}?s=${size}&d=retro`;
 };
 
-export const User = mongoose.model<CarDocument>("Car", userSchema);
+export const Car = mongoose.model<CarDocument>("Car", userSchema);
