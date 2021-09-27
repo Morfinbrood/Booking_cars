@@ -11,7 +11,7 @@ import { CallbackError, NativeError } from "mongoose";
  * @route GET /signup
  */
 export const getCreateCar = (req: Request, res: Response): void => {
-    res.render("account/createNewCar", {
+    res.render("car/createNewCar", {
         title: "Create new Car"
     });
 };
@@ -68,7 +68,7 @@ export const postUpdateProfile = async (req: Request, res: Response, next: NextF
                 return next(err);
             }
             req.flash("success", { msg: "Profile information has been updated." });
-            res.redirect("/account");
+            res.redirect("/car");
         });
     });
 };

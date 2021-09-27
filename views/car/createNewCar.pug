@@ -1,0 +1,33 @@
+extends ../layout
+
+block content
+  .page-header
+    h3 create New Car
+    hr
+  form.form-horizontal(id='signup-form', method='POST')
+    input(type='hidden', name='_csrf', value=_csrf)
+    .form-group.row.justify-content-md-center
+      label.col-sm-3.col-form-label.text-right.font-weight-bold(for='registrationNumber') registrationNumber
+      .col-sm-7
+        input.form-control(type='registrationNumber', name='registrationNumber', id='registrationNumber', placeholder='registrationNumber', autofocus, required)
+    .form-group.row.justify-content-md-center
+      label.col-sm-3.col-form-label.text-right.font-weight-bold(for='model') model
+      .col-sm-7
+        input.form-control(type='model', name='model', id='model', placeholder='model', required)
+    .form-group.row.justify-content-md-center
+      label.col-sm-3.col-form-label.text-right.font-weight-bold(for='manufactured') manufactured
+      .col-sm-7
+        input.form-control(type='manufactured', name='manufactured', id='manufactured', placeholder='manufactured', required)
+    .form-group.row.justify-content-md-center
+      label.col-sm-3.col-form-label.text-right.font-weight-bold(for='availableFromDate') availableFromDate
+      .col-sm-7
+        input.form-control(type='availableFromDate', name='availableFromDate', id='availableFromDate', placeholder='availableFromDate', required)   
+    .form-group.row.justify-content-md-center
+      label.col-sm-3.col-form-label.text-right.font-weight-bold(for='cost') cost
+      .col-sm-7
+        input.form-control(type='cost', name='cost', id='cost', placeholder='cost', required)     
+    .form-group.row.justify-content-md-center
+      .offset-sm-3.col-sm-7
+        button.btn.btn-success(type='submit')
+          i.fa.fa-user-plus
+          | create
